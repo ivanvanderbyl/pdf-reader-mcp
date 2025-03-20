@@ -28,12 +28,6 @@ brew tap alcova-ai/tap
 brew install perplexity-mcp
 ```
 
-### Using Go
-
-```sh
-go install github.com/Alcova-AI/perplexity-mcp@latest
-```
-
 ### From Source
 
 Clone the repository and build manually:
@@ -41,10 +35,10 @@ Clone the repository and build manually:
 ```sh
 git clone https://github.com/Alcova-AI/perplexity-mcp.git
 cd perplexity-mcp
-go build
+go build -o perplexity-mcp-server .
 ```
 
-### From Binary Releases
+### From Binary Releases (Other platforms)
 
 Download pre-built binaries from the [releases page](https://github.com/Alcova-AI/perplexity-mcp/releases).
 
@@ -52,17 +46,17 @@ Download pre-built binaries from the [releases page](https://github.com/Alcova-A
 
 This server supports only the `stdio` protocol for MCP communication.
 
-### Recommended: Use as MCP command with Claude Code
+### Setup with Claude Code
 
 Adding to Claude Code:
 
 ```sh
-claude mcp add-json perplexity-mcp '{"type":"stdio","command":"perplexity-mcp","env":{"PERPLEXITY_API_KEY":"pplx-YOUR-API-KEY-HERE"}}'
+claude mcp add-json --scope user perplexity-mcp '{"type":"stdio","command":"perplexity-mcp","env":{"PERPLEXITY_API_KEY":"pplx-YOUR-API-KEY-HERE"}}'
 ```
 
 That's it! You can now use Perplexity in Claude Code.
 
-### Recommended: Use as MCP command with Claude Desktop
+### Setup with Claude Desktop
 
 Adding to Claude Desktop:
 
