@@ -1,0 +1,30 @@
+{
+  "name": "perplexity-mcp",
+  "version": "0.1.0",
+  "description": "A Model Context Protocol server for the Perplexity API, allowing access to Perplexity's Sonar model through MCP.",
+  "author": "Ivan Vanderbyl",
+  "license": "MIT",
+  "categories": ["ai", "llm", "api"],
+  "keywords": ["perplexity", "sonar", "chat", "completion", "mcp"],
+  "executable": {
+    "path": "perplexity-mcp"
+  },
+  "tools": [
+    {
+      "name": "perplexity_ask",
+      "description": "Engages in a conversation using the Sonar API. Accepts an array of messages (each with a role and content) and returns a ask completion response from the Perplexity model."
+    }
+  ],
+  "env": [
+    {
+      "name": "PERPLEXITY_API_KEY",
+      "description": "API key for the Perplexity API",
+      "required": true
+    },
+    {
+      "name": "PERPLEXITY_MODEL",
+      "description": "Model identifier for the Perplexity API (default: sonar-pro)",
+      "required": false
+    }
+  ]
+}
