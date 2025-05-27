@@ -1,38 +1,39 @@
 {
-  "name": "perplexity-mcp",
-  "version": "0.2.0",
-  "description": "A Model Context Protocol server for the Perplexity API, allowing access to Perplexity's Sonar models for search and reasoning through MCP.",
+  "name": "pdf-reader-mcp",
+  "version": "0.1.0",
+  "description": "A Model Context Protocol server for reading and analyzing PDF documents",
   "author": "Ivan Vanderbyl",
   "license": "MIT",
-  "categories": ["ai", "llm", "api"],
-  "keywords": ["perplexity", "sonar", "chat", "completion", "reasoning", "mcp"],
+  "categories": ["ai", "llm", "api", "mcp", "pdf"],
+  "keywords": ["gemini", "chat", "completion", "mcp", "pdf", "reader"],
   "executable": {
-    "path": "perplexity-mcp"
+    "path": "pdf-reader-mcp"
   },
   "tools": [
     {
-      "name": "perplexity_ask",
-      "description": "Engages in a conversation using the Sonar API for search. Accepts an array of messages (each with a role and content) and returns a chat completion response from the Perplexity model."
-    },
-    {
-      "name": "perplexity_reason",
-      "description": "Uses the Perplexity reasoning model to perform complex reasoning tasks. Accepts a query string and returns a comprehensive reasoned response."
+      "name": "pdf_read",
+      "description": "Reads and analyzes a PDF document. Accepts a file path and returns a markdown string.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "file_path": {
+            "type": "string",
+            "description": "The path to the PDF file to read"
+          }
+        },
+        "required": ["file_path"]
+      }
     }
   ],
   "env": [
     {
-      "name": "PERPLEXITY_API_KEY",
-      "description": "API key for the Perplexity API",
+      "name": "GEMINI_API_KEY",
+      "description": "API key for the Gemini API",
       "required": true
     },
     {
-      "name": "PERPLEXITY_MODEL",
-      "description": "Model identifier for search queries (default: sonar-pro)",
-      "required": false
-    },
-    {
-      "name": "PERPLEXITY_REASONING_MODEL",
-      "description": "Model identifier for reasoning tasks (default: sonar-reasoning-pro)",
+      "name": "GEMINI_MODEL",
+      "description": "Model identifier for PDF analysis (default: gemini-1.5-flash)",
       "required": false
     }
   ]
